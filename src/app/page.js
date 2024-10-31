@@ -1,6 +1,5 @@
-import Image from "next/image";
+import sessao from "./sessao.json";
 
-const sessao = require("./sessao.json");
 
 const TitleAndDescription = ({title, description, big = true}) => {
   return (
@@ -13,17 +12,44 @@ const TitleAndDescription = ({title, description, big = true}) => {
   );
 }
 
+const Circle = ({ size = "10", color = "amber" }) => {
+  const colorClasses = {
+    amber: "bg-amber-500",
+    blue: "bg-blue-500",
+    red: "bg-white",
+    green: "bg-gray-500",
+    // Adicione outras cores conforme necessário
+  };
+
+  return (
+    <div
+      className={`w-${size} h-${size} rounded-full ${
+        colorClasses[color] || colorClasses["amber"]
+      }`}
+    ></div>
+  );
+};
+
+
+
+
+function BuyButton() {
+  return <button
+    className={"flex flex-col bg-sky-600 items-center py-2 rounded-2xl w-3/4 mt-auto mb-8"}>
+    <h2 className={"text-3xl font-light"}>Comprar</h2>
+    <p>R$ 125,00</p>
+  </button>;
+}
 
 export default function Home() {
   return (
-    <>
+    <main className="flex flex-col items-center min-h-screen">
       <TitleAndDescription title={sessao.titulo} description={sessao.horario}/>
 
-      <button className={"flex flex-col bg-sky-600 px-8 py-2 rounded-2xl"}>
-        <h2>Comprar</h2>
-        <p>R$ 125,00</p>
-      </button>
-    </>
+      <Circle color={"red"}/>
+
+      <BuyButton/>
+    </main>
   );
 }
 
