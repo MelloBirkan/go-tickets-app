@@ -1,6 +1,5 @@
 import sessao from "./sessao.json";
 
-
 const TitleAndDescription = ({title, description, big = true}) => {
   return (
     <section className={"flex flex-col mt-5"}>
@@ -21,22 +20,25 @@ const TitleAndDescription = ({title, description, big = true}) => {
 
     </section>
   )
-    ;
 }
 
-const Circle = ({size = "10", color = "amber"}) => {
+const Circle = ({size = 9, color = "white"}) => {
+  const sizeClasses = {
+    4: "w-4 h-4",
+    9: "w-9 h-9",
+  };
+
   const colorClasses = {
-    amber: "bg-amber-500",
-    blue: "bg-blue-500",
-    red: "bg-white",
-    green: "bg-gray-500",
+    "slate": "bg-slate-600",
+    "white": "bg-slate-50",
+    "cyan": "bg-cyan-600",
   };
 
   return (
     <div
-      className={`w-${size} h-${size} rounded-full ${
-        colorClasses[color] || colorClasses["amber"]
-      }`}
+      className={`rounded-full ${
+        sizeClasses[size] || sizeClasses["10"]
+      } ${colorClasses[color] || colorClasses["gray-700"]}`}
     ></div>
   );
 };
@@ -50,12 +52,27 @@ function BuyButton() {
   </button>;
 }
 
+function CircleAndText({text, color}) {
+  return <div className={"flex items-center gap-3"}>
+    <Circle size={4} color={color}/>
+    <p>{text}</p>
+  </div>;
+}
+
+function SeatTip() {
+  return <div className={"flex gap-5"}>
+    <CircleAndText text={"Livre"}/>
+    <CircleAndText text={"Selecionado"} color={"cyan"}/>
+    <CircleAndText text={"Indisponivel"} color={"slate"}/>
+  </div>;
+}
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen">
       <TitleAndDescription title={sessao.titulo} description={sessao.horario}/>
 
-      <Circle color={"red"}/>
+      <SeatTip/>
 
       <BuyButton/>
     </main>
