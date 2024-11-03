@@ -5,20 +5,31 @@ const TitleAndDescription = ({title, description, big = true}) => {
   return (
     <section className={"flex flex-col mt-5"}>
       {big
-        ? <h1 className={"font-bold text-4xl"}>{title}</h1>
-        : <h2>{title}</h2>}
-      <h3 className={"font-thin text-3xl"}>{description}</h3>
+        ? (
+          <div className={"flex flex-col items-center"}>
+            <h1 className={"font-bold text-4xl"}>{title}</h1>
+            <h3 className={"font-thin text-3xl"}>{description}</h3>
+          </div>
+        )
+        : (
+          <>
+            <h2>{title}</h2>
+            <h3 className={"font-thin text-3xl"}>{description}</h3>
+          </>
+        )
+      }
+
     </section>
-  );
+  )
+    ;
 }
 
-const Circle = ({ size = "10", color = "amber" }) => {
+const Circle = ({size = "10", color = "amber"}) => {
   const colorClasses = {
     amber: "bg-amber-500",
     blue: "bg-blue-500",
     red: "bg-white",
     green: "bg-gray-500",
-    // Adicione outras cores conforme necessário
   };
 
   return (
@@ -29,8 +40,6 @@ const Circle = ({ size = "10", color = "amber" }) => {
     ></div>
   );
 };
-
-
 
 
 function BuyButton() {
