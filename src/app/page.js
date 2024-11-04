@@ -68,27 +68,39 @@ function SeatTip() {
 
 function ScreenLocation() {
   return <div className={"w-screen flex flex-col items-center mb-16 mt-10"}>
-    <p className={"font-thin"}>Screen</p>
-    <div className={"w-3/4 h-5 bg-slate-600"}></div>
+    <p className={"font-thin"}>Tela</p>
+    <div className={"w-10/12 h-5 bg-slate-600"}></div>
   </div>;
 }
 
-function Square({color = "white"}) {
+function Square({color = "white", modifier = ""}) {
   const colorClasses = {
     "slate": "bg-slate-400",
     "white": "dark:bg-slate-50 bg-slate-950",
     "cyan": "bg-cyan-600",
   }
 
-  return <div className={`m-3 ${colorClasses[color]} size-8 rounded-md`}></div>;
+  return <div className={`${colorClasses[color]} size-8 rounded-md ${modifier}`}></div>;
 }
 
-function GridSeat() {
-  return <ul className={"grid-cols-8 grid"}>
-    {sessao.assentos.map((seat, index) => (
-        <li key={index}><Square/></li>
+function SeatGrid() {
+  const totalColunas = 8;
+  const totalAssentos = sessao.assentos.length;
+  const assentosUltimaLinha = totalAssentos % totalColunas;
+  const offsetInicial = assentosUltimaLinha === 0 ? 1 : Math.floor((totalColunas - assentosUltimaLinha) / 2) + 1;
+
+  return (
+    <ul className="inline-grid grid-cols-8 gap-4 mx-6">
+      {sessao.assentos.map((seat, index) => (
+        <li
+          key={index}
+          className={`${index === totalAssentos - assentosUltimaLinha ? `col-start-${offsetInicial}` : ''}`}
+        >
+          <Square modifier={"m-1"}/>
+        </li>
       ))}
-  </ul>;
+    </ul>
+  );
 }
 
 export default function Home() {
@@ -96,7 +108,7 @@ export default function Home() {
     <main className="flex flex-col items-center min-h-screen">
       <TitleAndDescription title={sessao.titulo} description={sessao.horario}
                            modifier={"mt-5 mb-12"}/>
-      <GridSeat/>
+      <SeatGrid/>
       <ScreenLocation/>
       <SeatTip/>
       <BuyButton/>
