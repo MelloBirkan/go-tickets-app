@@ -30,7 +30,7 @@ const TitleAndDescription = ({
 const Circle = ({color = "white"}) => {
   const colorClasses = {
     "slate": "bg-slate-400",
-    "white": "dark:bg-slate-50 bg-slate-950",
+    "white": "dark:bg-slate-100 bg-slate-800",
     "cyan": "bg-cyan-600",
   };
 
@@ -76,7 +76,7 @@ function ScreenLocation() {
 function Square({color = "white", modifier = ""}) {
   const colorClasses = {
     "slate": "bg-slate-400",
-    "white": "dark:bg-slate-50 bg-slate-950",
+    "white": "dark:bg-slate-100 bg-slate-800",
     "cyan": "bg-cyan-600",
   }
 
