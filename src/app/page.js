@@ -11,7 +11,7 @@ const TitleAndDescription = ({
     <section className={"flex flex-col mt-5"}>
       {big
         ? (
-          <div className={`flex flex-col items-center ${modifier}`}>
+          <div className={`flex flex-col items-center gap-1 ${modifier}`}>
             <h1 className={"font-bold text-4xl"}>{title}</h1>
             <h3 className={"font-thin text-3xl"}>{description}</h3>
           </div>
@@ -83,13 +83,20 @@ function Square({color = "white"}) {
   return <div className={`m-3 ${colorClasses[color]} size-8 rounded-md`}></div>;
 }
 
+function NewComponent(props) {
+  return <ul className={"grid-cols-8 grid"}>
+    {sessao.assentos.map((seat, index) => (
+        <li key={index}><Square/></li>
+      ))}
+  </ul>;
+}
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen">
       <TitleAndDescription title={sessao.titulo} description={sessao.horario}
-                           modifier={"mt-5"}/>
-
-      <Square/>
+                           modifier={"mt-5 mb-12"}/>
+      <NewComponent/>
       <ScreenLocation/>
       <SeatTip/>
       <BuyButton/>
