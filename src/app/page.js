@@ -1,6 +1,12 @@
 import sessao from "./sessao.json";
+import {white} from "next/dist/lib/picocolors";
 
-const TitleAndDescription = ({title, description, big = true, modifier = ""}) => {
+const TitleAndDescription = ({
+                               title,
+                               description,
+                               big = true,
+                               modifier = ""
+                             }) => {
   return (
     <section className={"flex flex-col mt-5"}>
       {big
@@ -17,17 +23,11 @@ const TitleAndDescription = ({title, description, big = true, modifier = ""}) =>
           </>
         )
       }
-
     </section>
   )
 }
 
-const Circle = ({size = 9, color = "white"}) => {
-  const sizeClasses = {
-    4: "w-4 h-4",
-    9: "w-9 h-9",
-  };
-
+const Circle = ({color = "white"}) => {
   const colorClasses = {
     "slate": "bg-slate-400",
     "white": "dark:bg-slate-50 bg-slate-950",
@@ -36,9 +36,7 @@ const Circle = ({size = 9, color = "white"}) => {
 
   return (
     <div
-      className={`rounded-full ${
-        sizeClasses[size] || sizeClasses[9]
-      } ${colorClasses[color] || colorClasses["gray-700"]}`}
+      className={`rounded-full size-4 ${colorClasses[color] || colorClasses["gray-700"]}`}
     ></div>
   );
 };
@@ -54,7 +52,7 @@ function BuyButton() {
 
 function CircleAndText({text, color}) {
   return <div className={"flex items-center gap-3"}>
-    <Circle size={4} color={color}/>
+    <Circle color={color}/>
     <p className={"font-light"}>{text}</p>
   </div>;
 }
@@ -75,15 +73,25 @@ function ScreenLocation() {
   </div>;
 }
 
+function Square({color = "white"}) {
+  const colorClasses = {
+    "slate": "bg-slate-400",
+    "white": "dark:bg-slate-50 bg-slate-950",
+    "cyan": "bg-cyan-600",
+  }
+
+  return <div className={`m-3 ${colorClasses[color]} size-8 rounded-md`}></div>;
+}
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen">
-      <TitleAndDescription title={sessao.titulo} description={sessao.horario} modifier={"mt-5"}/>
+      <TitleAndDescription title={sessao.titulo} description={sessao.horario}
+                           modifier={"mt-5"}/>
 
+      <Square/>
       <ScreenLocation/>
-
       <SeatTip/>
-
       <BuyButton/>
     </main>
   );
