@@ -8,11 +8,11 @@
   "assentos": [
     {
       "numero": 1,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 2,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 3,
@@ -32,11 +32,11 @@
     },
     {
       "numero": 7,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 8,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 9,
@@ -112,19 +112,19 @@
     },
     {
       "numero": 27,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 28,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 29,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 30,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 31,
@@ -148,11 +148,11 @@
     },
     {
       "numero": 36,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 37,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "numero": 38,

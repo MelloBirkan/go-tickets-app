@@ -96,7 +96,7 @@ function SeatGrid() {
           key={index}
           className={`${index === totalAssentos - assentosUltimaLinha ? `col-start-${offsetInicial}` : ''}`}
         >
-          <Square modifier={"m-1"}/>
+          <Square modifier={"m-1"} color={seat.disponivel ? "white" : "slate"}/>
         </li>
       ))}
     </ul>
