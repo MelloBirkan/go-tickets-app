@@ -1,5 +1,7 @@
 import sessao from "./sessao.json";
 import {SeatsGrid} from "@/app/clientComponents/SeatsGrid";
+import {SeatsProvider} from "@/app/clientComponents/SeatsContext";
+import BuyButton from "@/app/clientComponents/BuyButton";
 
 const TitleAndDescription = ({
                                title,
@@ -42,14 +44,6 @@ const Circle = ({color = "white"}) => {
 };
 
 
-function BuyButton() {
-  return <button
-    className={"flex flex-col bg-sky-600 items-center py-2 rounded-2xl w-3/4 mt-auto mb-8 text-cyan-100"}>
-    <h2 className={"text-3xl font-light"}>Comprar</h2>
-    <p>R$ 125,00</p>
-  </button>;
-}
-
 function CircleAndText({text, color}) {
   return <div className={"flex items-center gap-3"}>
     <Circle color={color}/>
@@ -76,13 +70,14 @@ function ScreenLocation() {
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen">
-      <TitleAndDescription title={sessao.titulo} description={sessao.horario}
-                           modifier={"mt-5 mb-12"}/>
-      <SeatsGrid/>
-      <ScreenLocation/>
-      <SeatTip/>
-      <BuyButton/>
+      <SeatsProvider>
+        <TitleAndDescription title={sessao.titulo} description={sessao.horario} modifier={"mt-5 mb-12"}/>
+        <SeatsGrid/>
+        <ScreenLocation/>
+        <SeatTip/>
+        <BuyButton/>
+      </SeatsProvider>
     </main>
-  );
+  )
 }
 

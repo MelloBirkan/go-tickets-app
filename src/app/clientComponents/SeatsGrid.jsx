@@ -1,29 +1,19 @@
 "use client"
-import {useState} from "react";
+import { useSeats } from "@/app/clientComponents/SeatsContext";
 import sessao from "@/app/sessao.json";
 
-
-function Square({color = "white", modifier = ""}) {
+function Square({ color = "white", modifier = "" }) {
   const colorClasses = {
     "slate": "dark:bg-slate-600 bg-slate-400",
     "white": "dark:bg-slate-100 bg-slate-800",
     "cyan": "bg-cyan-600",
-  }
+  };
 
-  return <div
-    className={`${colorClasses[color]} size-8 rounded-md ${modifier}`}></div>;
+  return <div className={`${colorClasses[color]} size-8 rounded-md ${modifier}`}></div>;
 }
 
 export const SeatsGrid = () => {
-  const [selectedSeats, setSelectedSeats] = useState([]);
-
-  const toggleSeatSelection = (seatNumber) => {
-    setSelectedSeats((prevSelectedSeats) =>
-      prevSelectedSeats.includes(seatNumber)
-        ? prevSelectedSeats.filter((id) => id !== seatNumber)
-        : [...prevSelectedSeats, seatNumber]
-    );
-  };
+  const { selectedSeats, toggleSeatSelection } = useSeats();
 
   return (
     <ul className="inline-grid grid-cols-8 gap-4 mx-6">
@@ -46,4 +36,4 @@ export const SeatsGrid = () => {
       ))}
     </ul>
   );
-}
+};
