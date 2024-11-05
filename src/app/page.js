@@ -84,17 +84,12 @@ function Square({color = "white", modifier = ""}) {
 }
 
 function SeatGrid() {
-  const totalColunas = 8;
-  const totalAssentos = sessao.assentos.length;
-  const assentosUltimaLinha = totalAssentos % totalColunas;
-  const offsetInicial = assentosUltimaLinha === 0 ? 1 : Math.floor((totalColunas - assentosUltimaLinha) / 2) + 1;
 
   return (
     <ul className="inline-grid grid-cols-8 gap-4 mx-6">
       {sessao.assentos.map((seat, index) => (
         <li
           key={index}
-          className={`${index === totalAssentos - assentosUltimaLinha ? `col-start-${offsetInicial}` : ''}`}
         >
           <Square modifier={"m-1"} color={seat.disponivel ? "white" : "slate"}/>
         </li>
