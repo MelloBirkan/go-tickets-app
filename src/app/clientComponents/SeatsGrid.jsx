@@ -2,6 +2,8 @@
 import { useSeats } from "@/app/clientComponents/SeatsContext";
 import sessao from "@/app/sessao.json";
 
+
+
 function Square({ color = "white", modifier = "" }) {
   const colorClasses = {
     "slate": "dark:bg-slate-600 bg-slate-400",
@@ -14,10 +16,11 @@ function Square({ color = "white", modifier = "" }) {
 
 export const SeatsGrid = () => {
   const { selectedSeats, toggleSeatSelection } = useSeats();
+  const {novaSessao} = useSeats()
 
   return (
     <ul className="inline-grid grid-cols-8 gap-4 mx-6">
-      {sessao.assentos.map((seat, index) => (
+      {novaSessao.assentos.map((seat, index) => (
         <li
           key={index}
           onClick={() => seat.disponivel && toggleSeatSelection(seat.numero)}
