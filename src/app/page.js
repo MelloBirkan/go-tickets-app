@@ -1,5 +1,4 @@
 import sessao from "./sessao.json";
-import {white} from "next/dist/lib/picocolors";
 
 const TitleAndDescription = ({
                                title,
@@ -29,8 +28,8 @@ const TitleAndDescription = ({
 
 const Circle = ({color = "white"}) => {
   const colorClasses = {
-    "slate": "bg-slate-400",
-    "white": "dark:bg-slate-100 bg-slate-800",
+    "slate": "bg-slate-600",
+    "white": "dark:bg-slate-100 bg-slate-900",
     "cyan": "bg-cyan-600",
   };
 
@@ -75,12 +74,13 @@ function ScreenLocation() {
 
 function Square({color = "white", modifier = ""}) {
   const colorClasses = {
-    "slate": "bg-slate-400",
+    "slate": "dark:bg-slate-600 bg-slate-400",
     "white": "dark:bg-slate-100 bg-slate-800",
     "cyan": "bg-cyan-600",
   }
 
-  return <div className={`${colorClasses[color]} size-8 rounded-md ${modifier}`}></div>;
+  return <div
+    className={`${colorClasses[color]} size-8 rounded-md ${modifier}`}></div>;
 }
 
 function SeatGrid() {
