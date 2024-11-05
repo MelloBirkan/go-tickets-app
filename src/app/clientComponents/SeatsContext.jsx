@@ -1,4 +1,3 @@
-// src/app/clientComponents/SeatsContext.jsx
 "use client"
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import sessao from "../sessao.json"
@@ -27,7 +26,7 @@ export const SeatsProvider = ({ children }) => {
   };
 
   return (
-    <SeatsContext.Provider value={{ selectedSeats, toggleSeatSelection, valorTotal, novaSessao, updateSessao }}>
+    <SeatsContext.Provider value={{ selectedSeats, setSelectedSeats, toggleSeatSelection, valorTotal, setValorTotal, novaSessao, updateSessao }}>
       {children}
     </SeatsContext.Provider>
   );

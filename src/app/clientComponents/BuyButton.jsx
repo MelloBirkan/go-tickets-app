@@ -1,9 +1,8 @@
-// src/app/clientComponents/BuyButton.jsx
 "use client"
 import { useSeats } from "@/app/clientComponents/SeatsContext";
 
 export default function BuyButton() {
-  const { valorTotal, novaSessao, selectedSeats, updateSessao } = useSeats();
+  const { valorTotal, novaSessao, selectedSeats, updateSessao, setValorTotal, setSelectedSeats } = useSeats();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -18,6 +17,8 @@ export default function BuyButton() {
     });
 
     updateSessao(newSessao);
+    setValorTotal(0); // Zera o valor total
+    setSelectedSeats([]); // Limpa os assentos selecionados
   };
 
   return (
