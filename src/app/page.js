@@ -53,11 +53,13 @@ function CircleAndText({text, color}) {
 
 
 function SeatTip() {
-  return <div className={"flex gap-6"}>
+  return (
+    <div className={"flex gap-6 mb-5"}>
     <CircleAndText text={"Livre"}/>
     <CircleAndText text={"Selecionado"} color={"cyan"}/>
     <CircleAndText text={"Indisponivel"} color={"slate"}/>
-  </div>;
+  </div>
+  );
 }
 
 function ScreenLocation() {
