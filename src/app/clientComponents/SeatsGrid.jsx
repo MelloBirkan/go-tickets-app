@@ -30,8 +30,18 @@ export const SeatsGrid = () => {
       {sessao.assentos.map((seat, index) => (
         <li
           key={index}
+          onClick={() => seat.disponivel && toggleSeatSelection(seat.numero)}
         >
-          <Square modifier={"m-1"} color={seat.disponivel ? "white" : "slate"}/>
+          <Square
+            modifier="m-1"
+            color={
+              seat.disponivel
+                ? selectedSeats.includes(seat.numero)
+                  ? "cyan"
+                  : "white"
+                : "slate"
+            }
+          />
         </li>
       ))}
     </ul>
