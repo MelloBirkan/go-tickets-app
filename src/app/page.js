@@ -1,4 +1,5 @@
 import sessao from "./sessao.json";
+import {SeatsGrid} from "@/app/clientComponents/SeatsGrid";
 
 const TitleAndDescription = ({
                                title,
@@ -72,38 +73,12 @@ function ScreenLocation() {
   </div>;
 }
 
-function Square({color = "white", modifier = ""}) {
-  const colorClasses = {
-    "slate": "dark:bg-slate-600 bg-slate-400",
-    "white": "dark:bg-slate-100 bg-slate-800",
-    "cyan": "bg-cyan-600",
-  }
-
-  return <div
-    className={`${colorClasses[color]} size-8 rounded-md ${modifier}`}></div>;
-}
-
-function SeatGrid() {
-
-  return (
-    <ul className="inline-grid grid-cols-8 gap-4 mx-6">
-      {sessao.assentos.map((seat, index) => (
-        <li
-          key={index}
-        >
-          <Square modifier={"m-1"} color={seat.disponivel ? "white" : "slate"}/>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen">
       <TitleAndDescription title={sessao.titulo} description={sessao.horario}
                            modifier={"mt-5 mb-12"}/>
-      <SeatGrid/>
+      <SeatsGrid/>
       <ScreenLocation/>
       <SeatTip/>
       <BuyButton/>
