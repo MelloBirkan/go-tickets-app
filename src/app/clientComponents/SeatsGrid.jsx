@@ -16,27 +16,29 @@ function Square({ color = "white", modifier = "" }) {
 
 export const SeatsGrid = () => {
   const { selectedSeats, toggleSeatSelection } = useSeats();
-  const {novaSessao} = useSeats()
+  const { novaSessao } = useSeats();
 
   return (
-    <ul className="inline-grid grid-cols-8 gap-4 mx-6">
-      {novaSessao.assentos.map((seat, index) => (
-        <li
-          key={index}
-          onClick={() => seat.disponivel && toggleSeatSelection(seat.numero)}
-        >
-          <Square
-            modifier="m-1"
-            color={
-              seat.disponivel
-                ? selectedSeats.includes(seat.numero)
-                  ? "cyan"
-                  : "white"
-                : "slate"
-            }
-          />
-        </li>
-      ))}
-    </ul>
+    <div className="flex justify-center items-center">
+      <ul className="inline-grid grid-cols-8 gap-4 mx-6">
+        {novaSessao.assentos.map((seat, index) => (
+          <li
+            key={index}
+            onClick={() => seat.disponivel && toggleSeatSelection(seat.numero)}
+          >
+            <Square
+              modifier="m-1"
+              color={
+                seat.disponivel
+                  ? selectedSeats.includes(seat.numero)
+                    ? "cyan"
+                    : "white"
+                  : "slate"
+              }
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

@@ -6,7 +6,7 @@ import BuyButton from "@/app/clientComponents/BuyButton";
 const TitleAndDescription = ({
                                title,
                                description,
-                               big = true,
+                               big = false,
                                modifier = ""
                              }) => {
   return (
@@ -54,32 +54,45 @@ function CircleAndText({text, color}) {
 
 function SeatTip() {
   return (
-    <div className={"flex gap-6 mb-5"}>
-    <CircleAndText text={"Livre"}/>
-    <CircleAndText text={"Selecionado"} color={"cyan"}/>
-    <CircleAndText text={"Indisponivel"} color={"slate"}/>
-  </div>
+    <div className={"flex gap-6 mb-5 justify-center"}>
+      <CircleAndText text={"Livre"}/>
+      <CircleAndText text={"Selecionado"} color={"cyan"}/>
+      <CircleAndText text={"Indisponivel"} color={"slate"}/>
+    </div>
   );
 }
 
 function ScreenLocation() {
-  return <div className={"w-screen flex flex-col items-center mb-16 mt-10"}>
+  return <div className={"flex flex-col items-center mb-16 mt-10"}>
     <p className={"font-thin"}>Tela</p>
-    <div className={"w-10/12 h-5 bg-slate-600"}></div>
+    <div className={"w-[450px] h-5 bg-slate-600"}></div>
   </div>;
 }
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center min-h-screen">
-      <SeatsProvider>
-        <TitleAndDescription title={sessao.titulo} description={sessao.horario} modifier={"mt-5 mb-12"}/>
-        <SeatsGrid/>
-        <ScreenLocation/>
-        <SeatTip/>
+    <SeatsProvider>
+      <main className="flex flex-col items-center h-screen mx-auto max-w-screen-lg">
+        <TitleAndDescription title={sessao.titulo} description={sessao.horario}
+                             modifier={"mt-5 mb-12"} big={true}/>
+        <div className={"flex justify-center md:mx-6 gap-8"}>
+          <div className={"flex flex-col"}>
+            <SeatsGrid/>
+            <ScreenLocation/>
+            <SeatTip/>
+          </div>
+          <div className={"hidden md:flex md:flex-col gap-6"}>
+            <TitleAndDescription title={"Sinopse do filme"}
+                                 description={sessao.sinopse}/>
+            <TitleAndDescription title={"Data de lancamento"}
+                                 description={sessao.dataLancamento}/>
+            <TitleAndDescription title={"Direcão"}
+                                 description={sessao.direcao}/>
+          </div>
+        </div>
         <BuyButton/>
-      </SeatsProvider>
-    </main>
+      </main>
+    </SeatsProvider>
   )
 }
 
