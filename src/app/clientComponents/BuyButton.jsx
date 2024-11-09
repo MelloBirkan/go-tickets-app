@@ -24,7 +24,7 @@ export default function BuyButton() {
   return (
     <button
       type="button"
-      className={"flex flex-col bg-sky-600 items-center py-2 rounded-2xl w-[450px] mt-auto mb-8 text-cyan-100 md:mt-16"}
+      className={"flex flex-col bg-sky-600 items-center py-2 rounded-2xl md:w-[450px] w-11/12 mt-auto mb-8 text-cyan-100 md:mt-16"}
       onClick={handleClick}
     >
       <h2 className={"text-3xl font-light"}>Comprar</h2>

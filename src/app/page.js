@@ -65,23 +65,23 @@ function SeatTip() {
 function ScreenLocation() {
   return <div className={"flex flex-col items-center mb-16 mt-10"}>
     <p className={"font-thin"}>Tela</p>
-    <div className={"w-[450px] h-5 bg-slate-600"}></div>
+    <div className={"md:w-[450px] w-11/12 h-5 bg-slate-600"}></div>
   </div>;
 }
 
 export default function Home() {
   return (
     <SeatsProvider>
-      <main className="flex flex-col items-center h-screen mx-auto max-w-screen-lg">
+      <main className="flex flex-col items-center md:h-screen mx-auto md:max-w-screen-lg">
         <TitleAndDescription title={sessao.titulo} description={sessao.horario}
                              modifier={"mt-5 mb-12"} big={true}/>
-        <div className={"flex justify-center md:mx-6 gap-8"}>
+        <div className={"flex justify-center md:mx-6 md:gap-8"}>
           <div className={"flex flex-col"}>
             <SeatsGrid/>
             <ScreenLocation/>
             <SeatTip/>
           </div>
-          <div className={"hidden md:flex md:flex-col gap-6"}>
+          <div className={"hidden md:flex md:flex-col md:gap-6"}>
             <TitleAndDescription title={"Sinopse do filme"}
                                  description={sessao.sinopse}/>
             <TitleAndDescription title={"Data de lancamento"}
