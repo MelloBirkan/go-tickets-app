@@ -6,7 +6,7 @@ export default function BuyButton() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    alert("Compra efetuada com sucesso!");
+    selectedSeats.length > 0 ? alert("Compra efetuada com sucesso!") : alert("Selecione 1 ou mais assentos primeiro!");
 
     const newSessao = { ...novaSessao };
     selectedSeats.forEach(seatNumber => {

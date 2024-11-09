@@ -30,15 +30,15 @@ const TitleAndDescription = ({
 }
 
 const Circle = ({color = "white"}) => {
-  const colorClasses = {
-    "slate": "bg-slate-600",
-    "white": "dark:bg-slate-100 bg-slate-900",
+   const colorClasses = {
+    "slate": "dark:bg-slate-600 bg-slate-400",
+    "white": "dark:bg-slate-100 bg-slate-800",
     "cyan": "bg-cyan-600",
   };
 
   return (
     <div
-      className={`rounded-full size-4 ${colorClasses[color] || colorClasses["gray-700"]}`}
+      className={`rounded-full size-4 ${colorClasses[color]}`}
     ></div>
   );
 };
