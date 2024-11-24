@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tutorial: Sistema de Reserva de Assentos com Next.js e TailwindCSS
 
-## Getting Started
+Este tutorial irá guiá-lo na criação de um sistema de reserva de assentos para cinema usando Next.js e TailwindCSS.
 
-First, run the development server:
+## Pré-requisitos
+
+- Node.js instalado
+- Conhecimento básico de React e TailwindCSS
+
+## Passo 1: Configuração Inicial
+
+Primeiro, crie um novo projeto Next.js:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx create-next-app@latest go-tickets
+cd go-tickets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Durante a configuração, selecione:
+- ✅ TailwindCSS 
+- ✅ ESLint
+- ✅ `src/` directory
+- ✅ `app/` router
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Passo 2: Estrutura de Arquivos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Crie a seguinte estrutura de diretórios:
 
-## Learn More
+```
+src/
+  ├── app/
+  │   ├── clientComponents/
+  │   │   ├── SeatsContext.jsx
+  │   │   ├── SeatsGrid.jsx
+  │   │   └── BuyButton.jsx
+  │   ├── fonts/
+  │   │   ├── GeistVF.woff
+  │   │   └── GeistMonoVF.woff
+  │   ├── layout.jsx
+  │   ├── page.jsx
+  │   └── sessao.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Passo 3: Configuração do Contexto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O `SeatsContext.jsx` gerenciará o estado global dos assentos. Ele mantém:
+- Lista de assentos selecionados
+- Valor total da compra
+- Estado da sessão
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Passo 4: Componente de Grid de Assentos
 
-## Deploy on Vercel
+O `SeatsGrid.jsx` renderiza a grade de assentos com:
+- Assentos disponíveis (brancos)
+- Assentos selecionados (ciano)
+- Assentos indisponíveis (cinza)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Passo 5: Botão de Compra
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O `BuyButton.jsx` gerencia:
+- Exibição do valor total
+- Processamento da compra
+- Atualização dos assentos após a compra
+
+## Passo 6: Layout e Estilização
+
+1. Configure as fontes personalizadas no `layout.jsx`
+2. Use TailwindCSS para estilização responsiva
+3. Implemente o tema claro/escuro
+
+## Passo 7: Página Principal
+
+No `page.jsx`, organize os componentes:
+- Título e informações do filme
+- Grid de assentos
+- Indicador de tela
+- Legenda dos assentos
+- Botão de compra
+
+## Funcionalidades Principais
+
+- 🎫 Seleção múltipla de assentos
+- 💰 Cálculo automático do valor total
+- 🔄 Atualização em tempo real do estado dos assentos
+- 🌓 Suporte a tema claro/escuro
+- 📱 Design responsivo
+
+## Como Usar
+
+1. Clone o repositório
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Execute o projeto:
+```bash
+npm run dev
+```
+
+4. Acesse `http://localhost:3000`
+
+## Estrutura de Dados
+
+O arquivo `sessao.json` deve conter:
+- Título do filme
+- Horário da sessão
+- Preço
+- Lista de assentos com estado de disponibilidade
+- Informações adicionais do filme
+
+## Personalização
+
+Você pode personalizar:
+- Cores dos assentos no `SeatsGrid.jsx`
+- Layout da grade alterando `grid-cols-8`
+- Estilos dos componentes via TailwindCSS
