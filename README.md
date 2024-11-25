@@ -1,6 +1,10 @@
-# Tutorial: Sistema de Reserva de Assentos com Next.js e TailwindCSS
+Sistema de Reserva de Assentos com Next.js e TailwindCSS
+
+![Visão geral do sistema](./public/overview1.gif)
+
 
 Este tutorial irá guiá-lo na criação de um sistema de reserva de assentos para cinema usando Next.js e TailwindCSS.
+
 
 ## Pré-requisitos
 
@@ -277,40 +281,30 @@ className={"dark:bg-slate-900 bg-slate-200"}
 ## Demonstração Visual
 
 ### Visão Geral
-![Visão geral do sistema](./public/images/overview.gif)
+![Visão geral do sistema](./public/overview2.gif)
 *Sistema completo em funcionamento*
 
 ### Funcionalidades Principais
 
 #### Seleção de Assentos
-![Seleção de assentos](./public/images/seat-selection.gif)
-*Demonstração da seleção múltipla de assentos*
+<img src="./public/seat-selection.gif" width="500" alt="Seleção de assentos">
+
 
 #### Tema Claro/Escuro
+<img src="./public/gifTheme.gif" width="1010" alt="Tema claro/escuro">
+
 <div style="display: flex; gap: 10px;">
-    <img src="./public/images/light-theme.png" width="400" alt="Tema claro">
-    <img src="./public/images/dark-theme.png" width="400" alt="Tema escuro">
+    <img src="./public/light-theme.png" width="500" alt="Tema claro">
+    <img src="./public/desktop.png" width="500" alt="Tema escuro">
 </div>
 
 ### Responsividade
+
+<img src="./public/responsividade.gif" width="920" alt="Responsividade">
+
 <div style="display: flex; gap: 10px;">
-    <img src="./public/images/mobile.png" width="200" alt="Versão mobile">
-    <img src="./public/images/tablet.png" width="300" alt="Versão tablet">
-    <img src="./public/images/desktop.png" width="400" alt="Versão desktop">
+    <img src="./public/mobile.png" width="200" alt="Versão mobile">
+    <img src="./public/tablet.png" width="300" alt="Versão tablet">
+    <img src="./public/desktop.png" width="400" alt="Versão desktop">
 </div>
 
-### Fluxo de Compra
-![Processo de compra](./public/images/purchase-flow.gif)
-*Demonstração do processo completo de compra*
-
-### Interface do Usuário
-#### Componentes Principais
-![Componentes UI](./public/images/ui-components.png)
-*Visão detalhada dos principais componentes da interface*
-
-#### Estados dos Assentos
-<div style="display: flex; gap: 10px;">
-    <img src="./public/images/available.png" width="200" alt="Assento disponível">
-    <img src="./public/images/selected.png" width="200" alt="Assento selecionado">
-    <img src="./public/images/unavailable.png" width="200" alt="Assento indisponível">
-</div>
