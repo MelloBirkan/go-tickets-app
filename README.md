@@ -303,8 +303,8 @@ className={"dark:bg-slate-900 bg-slate-200"}
 <img src="./public/responsividade.gif" width="920" alt="Responsividade">
 
 <div style="display: flex; gap: 10px;">
-    <img src="./public/mobile.png" width="200" alt="Versão mobile">
+    <img src="./public/mobile.png" width="300" alt="Versão mobile">
     <img src="./public/tablet.png" width="300" alt="Versão tablet">
-    <img src="./public/desktop.png" width="400" alt="Versão desktop">
+    <img src="./public/desktop.png" width="300" alt="Versão desktop">
 </div>
 
