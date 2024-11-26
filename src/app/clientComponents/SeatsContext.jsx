@@ -1,6 +1,6 @@
-"use client"
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import sessao from "../sessao.json"
+"use client";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import sessao from "../sessao.json";
 
 const SeatsContext = createContext();
 
@@ -26,7 +26,17 @@ export const SeatsProvider = ({ children }) => {
   };
 
   return (
-    <SeatsContext.Provider value={{ selectedSeats, setSelectedSeats, toggleSeatSelection, valorTotal, setValorTotal, novaSessao, updateSessao }}>
+    <SeatsContext.Provider
+      value={{
+        selectedSeats,
+        setSelectedSeats,
+        toggleSeatSelection,
+        valorTotal,
+        setValorTotal,
+        novaSessao,
+        updateSessao,
+      }}
+    >
       {children}
     </SeatsContext.Provider>
   );
