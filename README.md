@@ -1,4 +1,4 @@
-Sistema de Reserva de Assentos com Next.js e TailwindCSS
+# Sistema de Reserva de Assentos com Next.js e TailwindCSS
 
 ![Visão geral do sistema](./public/overview1.gif)
 
